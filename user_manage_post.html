@@ -1,0 +1,58 @@
+{% include'user_header.html' %}
+  
+                   
+                  
+     <section id="hero" style="background-image: url(/static/managepost.png);">
+    <div class="hero-container">
+                  
+              
+
+<form method="post" enctype="multipart/form-data">
+		<center>
+		
+		<br><br>
+						<h2 style="color: white">Manage Tweet</h2>
+			<table class="table" style="width: 600px;color: white">
+				<tr>
+					<th>Tweet</th>
+					<td>
+						<textarea name="post" class="form-control"></textarea>
+					</td>
+				</tr>
+					<tr>
+					<th>Path</th>
+					<td><input type="file" name="fl" class="form-control" ></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><input type="submit" name="manage" value="Manage" class="btn btn-info"></td>
+				</tr>
+			</table>
+					
+	   </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+			
+		
+			<br>
+			<center>
+			<h2>Tweet</h2>
+			<table class="table" style="width: 500px">
+				<tr>
+					<th>Sl.no</th>
+					<th>Tweet</th>
+					<th>file</th>
+				</tr>
+				{% for row in data['post'] %}
+				<tr>
+					<td>{{loop.index}}</td>
+					<td>{{row['post']}}</td>
+					<td><a href="/{{row['path']}}"><img src="/{{row['path']}}" height="100" width="100"></a></td>
+					<td><a class="btn btn-success" href="user_view_comments?pid={{row['post_id']}}">View Comments</a></td>
+				</tr>
+				{% endfor %}
+			</table>
+
+		</center>
+	</form>
+{% include'footer.html' %}

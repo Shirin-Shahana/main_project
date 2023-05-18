@@ -1,0 +1,49 @@
+{% include 'user_header.html' %}
+       <!-- ======= Hero Section ======= -->
+  <section id="hero" style="background-image: url(/static/complaints5.jpg);height: 600px">
+    <div class="hero-container">
+   
+      
+<center>
+	  <form method="post">
+		<h2 style="color: white">Complaint</h2>
+			<table class="table" style="width: 500px;color: white">
+				<tr>
+					<th>Complaint</th>
+					<td><input type="text" name="com" pattern="[a-zA-Z\s]{0,30}" title="enter alphabets only" class="form-control"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><input type="submit" name="manage" value="SEND" class="btn btn-info"></td>
+				</tr>
+			</table>	
+	 
+		</div>
+  </section><!-- End Hero -->	
+
+			<br>
+			<center>
+			<h2>Complaint</h2>
+			<table class="table" style="width: 900px">
+				<tr>
+					<th>Sl.no</th>
+					<th>Complaint</th>
+					<th>Reply</th>
+					<th>Date</th>
+				</tr>
+				{% for row in data['com'] %}
+				<tr>
+					<td>{{loop.index}}</td>
+					<td>{{row['complaint']}}</td>
+					<td>{{row['reply']}}</td>
+					<td>{{row['date']}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+
+		</center>
+</form>
+     
+    </div>
+    </section><!-- End Hero -->
+
+{% include 'footer.html' %}

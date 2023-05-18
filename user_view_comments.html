@@ -1,0 +1,38 @@
+{% include'user_header.html' %}
+  
+                   
+                  
+     <section id="hero" style="background-image: url(/static/img1.jpg);">
+    <div class="hero-container">
+                  
+              
+
+<form method="post" enctype="multipart/form-data">
+		<br>
+			<center>
+			<h2 style="color: white">Comments</h2>
+			<table class="table" style="width: 500px;color: white" >
+				<tr>
+					<th>Sl.no</th>
+					<th>Email</th>
+					<th>comment</th>
+				</tr>
+				{% for row in data['post'] %}
+				<tr>
+					<td>{{loop.index}}</td>
+					<td>{{row['email']}}</td>
+					<td>{{row['comment']}}</td>
+				{% endfor %}
+			</table>
+
+		</center>
+					
+	   </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+			
+		
+			
+	</form>
+{% include'footer.html' %}
